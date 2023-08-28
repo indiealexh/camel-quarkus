@@ -1,0 +1,17 @@
+We cannot add the Oracle JDBC driver as a compile scope dependency of this extension because it is GPL2 licensed and it
+would be against the policy of the Apache Software Foundation.
+
+Therefore you have to add the dependency to your project yourself, as long as you are able to comply with its license
+terms.
+
+`quarkus-bom` (transitively included by `camel-quarkus-bom` and `quarkus-universe-bom`) manages a version
+of `com.oracle.database.jdbc:ojdbc11` compatible with Camel Quarkus. So you do not need specify the version of the
+driver if you import any of the mentioned BOMs. The following should be sufficient for Maven:
+
+[source,xml]
+----
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc11</artifactId>
+</dependency>
+----
